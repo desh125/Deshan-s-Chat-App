@@ -186,7 +186,7 @@ public class ClientFormController {
         }
     }
 
-    private void sendImage(String msgToSend) {
+    private void sendAnImage(String msgToSend) {
         Image image = new Image(msgToSend);
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(200);
@@ -247,7 +247,7 @@ public class ClientFormController {
         dialog.setVisible(true);
         String file = dialog.getDirectory() + dialog.getFile();
         dialog.dispose();
-        sendImage(file);
+        sendAnImage(file);
         System.out.println(file + " chosen.");
     }
 
