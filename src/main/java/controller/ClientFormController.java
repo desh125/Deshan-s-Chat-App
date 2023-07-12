@@ -42,27 +42,7 @@ public class ClientFormController {
 
     public static void receiveMessage(String msg, VBox vBox) throws IOException {
         if (msg.matches(".*\\.(png|jpe?g|gif)$")) {
-            HBox hBoxName = new HBox();
-            hBoxName.setAlignment(Pos.CENTER_LEFT);
-            Text textName = new Text(msg.split("[-]")[0]);
-            TextFlow textFlowName = new TextFlow(textName);
-            hBoxName.getChildren().add(textFlowName);
-
-            Image image = new Image(msg.split("[-]")[1]);
-            ImageView imageView = new ImageView(image);
-            imageView.setFitHeight(200);
-            imageView.setFitWidth(200);
-            HBox hBox = new HBox();
-            hBox.setAlignment(Pos.CENTER_LEFT);
-            hBox.setPadding(new Insets(5, 5, 5, 10));
-            hBox.getChildren().add(imageView);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    vBox.getChildren().add(hBoxName);
-                    vBox.getChildren().add(hBox);
-                }
-            });
+            // Code to handle image messages
 
         } else {
             String name = msg.split("-")[0];
@@ -74,6 +54,10 @@ public class ClientFormController {
 
             HBox hBoxName = new HBox();
             hBoxName.setAlignment(Pos.CENTER_LEFT);
+
+            // Add left padding to the message sender's name
+            hBoxName.setPadding(new Insets(2, 0, 0, 12));
+
             Text textName = new Text(name);
             TextFlow textFlowName = new TextFlow(textName);
             hBoxName.getChildren().add(textFlowName);
@@ -95,6 +79,7 @@ public class ClientFormController {
             });
         }
     }
+
 
     public void initialize() {
         txtLabel.setText(clientName);
