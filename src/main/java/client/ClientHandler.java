@@ -23,6 +23,7 @@ public class ClientHandler {
             e.printStackTrace();
         }
 
+        //we use this to get a msg from a client and send it to other clients
         new Thread(new Runnable() {
             @Override
             public void run() {
